@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container w-50 text-white bg-secondary  mt-4 p-3 rounded">
+
+    <form action="{% url 'edittodo' data.id %}" method="POST">
+        {% csrf_token %}  
+            <label for="title" class="form-label mt-1">Title</label>
+            <input type="text" id="title" name="title" class="form-control" value="{{data.title}}">
+            <label for="description"  class="form-label mt-1">Description</label>
+            <textarea name="description" id="description" cols="50" rows="7" class="form-control">{{data.description}}</textarea>
+            <input type="checkbox" class="form-check-input" id="is_completed" name="is_completed" 
+            {% if data.is_completed %}checked{% endif %}>
+            <label class="form-check-label" for="is_completed">Completed</label>
+            <div class="container mt-2 d-flex justify-content-center">
+                <input type="submit" value="Update" class="btn btn-primary text-white w-50" >
+            </div>
+            <div class="container mt-3">Created : {{data.created_date}}</div>
+            <div class="container mt-3">Last updated : {{data.updated_date}}</div>
+    </form>
+    
+    </div>
+    
+
+
+{% endblock content %}

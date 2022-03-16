@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container w-50 m-auto mt-4 rounded bg-info text-white p-4">
+    <form action={% url 'register' %} method="post" class="d-flex flex-column">
+        {% csrf_token %}
+        {% for fm in form %}
+            {{fm.label_tag}}{{fm}} {{fm.errors|striptags}}<br><br>
+        {% endfor %}
+
+        <div class="container mt-2 d-flex justify-content-between text-center">
+            <input type="submit" value="Register" class="btn btn-secondary">
+            <a href={% url 'loggin' %} class="text-decoration-none text-white">Login</a>
+        </div>
+    </form>
+</div>
+{% endblock content %}

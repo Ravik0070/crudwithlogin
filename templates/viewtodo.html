@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container m-auto mt-5 d-flex text-center flex-column bg-success w-50 text-white p-3">
+    <div class="container fs-1 "><u>{{data.title|capfirst}}</u></div>
+    <div class="container fs-4">{{data.description|capfirst}}</div>
+    <div class="container d-flex  text-info mt-3">
+        {% if data.is_completed %}
+                    <i class="fa-solid fa-check"></i><p class="fs-5">Completed</p>
+            {% else %}
+                    <i class="fa-solid fa-xmark"><p class="fs-5">Incomplete</i>
+        {% endif %}
+    </div>
+    <div class="container">{{data.created_date}}</div>
+    <div class="container"><a href={% url 'edittodo' data.id %}><i class="fa-solid fa-pen-to-square text-white fs-1"></i></a></div>
+</div>
+
+{% endblock content %}
