@@ -123,6 +123,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e757ccfd1d10301bb4055adc37c97526cd66f3ea
 
 
 # Default primary key field type
